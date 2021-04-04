@@ -1,16 +1,17 @@
-// Your code will go here
+let video;
+let poseNet;
 
-// Open up your console - if everything loaded properly you should see the version number 
-// corresponding to the latest version of ml5 printed to the console and in the p5.js canvas.
-console.log('ml5 version:', ml5.version);
-
-function setup(){
-	createCanvas(400, 400);
-	textSize(width / 3);
-	textAlign(CENTER, CENTER);
+function setup() {
+    createCanvas(640, 480);
+    video = createCapture(VIDEO);
+    video.hide();
+    posetNet = ml5.poseNet(video, modelLoaded);
 }
 
-function draw(){
-	background(200);
-	text(ml5.version, width/2, height/2);
+function modelLoaded() {
+    console.log('poseNet ready');
+}
+
+function draw() {
+    image(video, 0, 0);
 }
