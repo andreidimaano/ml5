@@ -22,11 +22,18 @@ function modelLoaded() {
 }
 
 function draw() {
-    image(video, 0, 0);
+    translate(video.width, 0);
+    scale(-1,1);
+    image(video, 0, 0, video.width, video.height);
 
     if(pose) {
         fill(255, 0, 0);
         ellipse(pose.nose.x, pose.nose.y, 64);
+
+        fill(255, 0, 0);
+        ellipse(pose.leftWrist.x, pose.leftWrist.y, 64);
+        fill(255, 0, 0);
+        ellipse(pose.rightWrist.x, pose.rightWrist.y, 64);
     }
     
 }
